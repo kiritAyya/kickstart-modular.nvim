@@ -37,23 +37,9 @@ return {
         callback = function()
           set_terminal_keymaps()
           vim.cmd [[setlocal nospell]]
+          vim.cmd [[startinsert]]
         end,
         desc = 'Mappings for navigation with a terminal',
-      })
-
-      -- start terminal in insert mode
-      vim.api.nvim_create_autocmd('TermOpen', {
-        desc = 'Auto enter insert mode when opening a terminal',
-        group = 'custom_buffer',
-        pattern = '*',
-        callback = function()
-          -- Wait briefly just in case we immediately switch out of the buffer (e.g. Neotest)
-          vim.defer_fn(function()
-            if vim.api.nvim_buf_get_option(0, 'buftype') == 'terminal' then
-              vim.cmd [[startinsert]]
-            end
-          end, 100)
-        end,
       })
 
       vim.api.nvim_create_user_command('Exec', function(opts)

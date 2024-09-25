@@ -16,6 +16,7 @@ return {
   enabled = config.enabled,
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
   },
   keys = config.keys,
   opts = config.opts,
