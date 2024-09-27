@@ -31,6 +31,20 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader>gdd', function()
+  local message = 'Diffview: '
+  if vim.g.diffview_open then
+    vim.cmd 'DiffviewClose'
+    message = message .. ' closed'
+    vim.g.diffview_open = false
+  else
+    vim.cmd 'DiffviewOpen'
+    message = message .. ' opened'
+    vim.g.diffview_open = true
+  end
+  vim.notify(message)
+end, { desc = 'Toggle Diffview' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -44,8 +58,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
-vim.keymap.set('n', '<leader>gdd', '<CMD>DiffviewOpen<CR>', { desc = 'Open Diffview' })
-vim.keymap.set('n', '<leader>gdc', '<CMD>DiffviewClose<CR>', { desc = 'Close Diffview' })
 
 -- vim: ts=2 sts=2 sw=2 et
