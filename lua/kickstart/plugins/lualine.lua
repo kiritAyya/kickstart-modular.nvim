@@ -7,6 +7,14 @@ return {
         options = {
           theme = 'palenight',
         },
+        sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 1,
+            },
+          },
+        },
       }
     end,
   },
