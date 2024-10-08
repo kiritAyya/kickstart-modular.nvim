@@ -84,7 +84,17 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      vim.keymap.set('n', '<leader><leader>', function()
+        -- Remap <M-d> of buffers picker to close open buffers
+        -- https://github.com/nvim-telescope/telescope.nvim/blob/116ebf8cda81a439b56fc7db8235b9b7cd43a5e2/lua/telescope/builtin/__internal.lua#L976
+        builtin.buffers {
+          attach_mappings = function(_, map)
+            map({ 'i', 'n' }, '<C-z>', require('telescope.actions').delete_buffer)
+            return true
+          end,
+        }
+      end, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
