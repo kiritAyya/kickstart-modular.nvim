@@ -41,6 +41,13 @@ vim.keymap.set('n', '<leader>gdd', function()
   end
 end, { desc = 'Toggle Diffview' })
 
+vim.keymap.set('n', '<leader><TAB>', function()
+  vim.cmd 'b#'
+end, { desc = 'Open previous buffer' })
+
+vim.keymap.set('n', '<leader>qq', function()
+  vim.cmd 'bd'
+end, { desc = 'Close current buffer' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
