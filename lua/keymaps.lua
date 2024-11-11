@@ -48,6 +48,11 @@ end, { desc = 'Open previous buffer' })
 vim.keymap.set('n', '<leader>qq', function()
   vim.cmd 'bd'
 end, { desc = 'Close current buffer' })
+
+vim.keymap.set('n', '<leader>tn', function()
+  vim.cmd 'tabnew'
+end, { desc = 'Open new tab' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
