@@ -67,4 +67,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Dismiss Noice Message
+vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss Noice Message' })
+
 -- vim: ts=2 sts=2 sw=2 et
