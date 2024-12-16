@@ -46,8 +46,8 @@ vim.keymap.set('n', '<leader><TAB>', function()
 end, { desc = 'Open previous buffer' })
 
 vim.keymap.set('n', '<leader>qq', function()
-  vim.cmd 'bd'
-end, { desc = 'Close current buffer' })
+  vim.cmd 'tabc'
+end, { desc = 'Close current tab' })
 
 vim.keymap.set('n', '<leader>tn', function()
   vim.cmd 'tabnew'
