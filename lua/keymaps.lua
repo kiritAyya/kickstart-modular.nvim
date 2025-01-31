@@ -70,4 +70,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Dismiss Noice Message
 vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss Noice Message' })
 
+-- Execute current file
+vim.keymap.set('n', '<leader>e', function()
+  vim.cmd 'source %'
+end, { desc = 'Run current file' })
+
 -- vim: ts=2 sts=2 sw=2 et
