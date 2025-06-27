@@ -9,12 +9,12 @@ return {
         },
         sections = {
           lualine_x = {
-            { 'encoding', 'fileformat', 'filetype' },
-            -- {
-            --   require('noice').api.status.mode.get,
-            --   cond = require('noice').api.status.mode.has,
-            --   color = { fg = '#ff9e64' },
-            -- },
+            { 'encoding' },
+            {
+              require('noice').api.status.mode.get,
+              cond = require('noice').api.status.mode.has,
+              color = { fg = '#ff9e64' },
+            },
           },
           lualine_c = {
             {
@@ -22,8 +22,11 @@ return {
               path = 1,
             },
           },
+          lualine_y = {
+            { 'filetype' },
+          },
           lualine_z = {
-            { 'datetime', style = 'uk' },
+            { 'location' },
           },
         },
       }

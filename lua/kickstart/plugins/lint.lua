@@ -6,8 +6,11 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
+        bash = { 'bash' },
         markdown = { 'markdownlint' },
-        go = { 'golangci-lint' },
+        -- go = { 'golangcilint' },
+        -- cmakelists = { 'cmakelint' },
+        -- c = { 'clangtidy' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
