@@ -11,7 +11,7 @@
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -23,51 +23,47 @@ require('lazy').setup({
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 
-  require 'kickstart/plugins/gitsigns',
+  require 'kickstart.plugins.noice',
+  -- require 'kickstart/plugins/toggle-term',
+  -- require 'kickstart/plugins/octo',
 
-  require 'kickstart/plugins/which-key',
+  require 'kickstart.plugins.gitsigns',
 
-  require 'kickstart/plugins/telescope',
+  require 'kickstart.plugins.which-key',
 
-  require 'kickstart/plugins/lspconfig',
+  require 'kickstart.plugins.telescope',
 
-  require 'kickstart/plugins/conform',
+  require 'kickstart.plugins.lspconfig',
 
-  require 'kickstart/plugins/cmp',
+  require 'kickstart.plugins.conform',
 
-  require 'kickstart/plugins/tokyonight',
+  require 'kickstart.plugins.blink-cmp',
 
-  require 'kickstart/plugins/todo-comments',
+  require 'kickstart.plugins.tokyonight',
 
-  require 'kickstart/plugins/mini',
+  require 'kickstart.plugins.todo-comments',
 
-  require 'kickstart/plugins/treesitter',
+  require 'kickstart.plugins.mini',
 
-  require 'kickstart/plugins/lualine',
+  require 'kickstart.plugins.treesitter',
 
-  require 'kickstart/plugins/noice',
+  require 'kickstart.plugins.lualine',
 
-  require 'kickstart/plugins/toggle-term',
-
-  require 'kickstart/plugins/neogit',
+  require 'kickstart.plugins.neogit',
 
   require 'kickstart.plugins.diffview',
 
-  require 'kickstart/plugins/oil',
+  require 'kickstart.plugins.oil',
 
-  require 'kickstart/plugins/trouble',
+  require 'kickstart.plugins.trouble',
 
-  -- require 'kickstart/plugins/octo',
+  require 'kickstart.plugins.ufo',
 
-  require 'kickstart/plugins/ufo',
+  require 'kickstart.plugins.dashboard',
 
-  require 'kickstart/plugins/dashboard',
+  require 'kickstart.plugins.persistence',
 
-  require 'kickstart/plugins/persistence',
-
-  require 'kickstart/plugins/vim-be-good',
-
-  require 'kickstart/plugins/present',
+  require 'kickstart.plugins.present',
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
@@ -77,9 +73,9 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
 

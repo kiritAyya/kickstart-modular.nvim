@@ -2,6 +2,7 @@ local state = {
   floating = {
     buf = -1,
     win = -1,
+    open = false,
   },
 }
 
@@ -45,11 +46,11 @@ local toggle_terminal = function()
     if vim.bo[state.floating.buf].buftype ~= 'terminal' then
       vim.cmd.terminal()
     end
+    vim.cmd 'normal i'
   else
     vim.api.nvim_win_hide(state.floating.win)
   end
-  vim.cmd 'normal i'
 end
 
 vim.api.nvim_create_user_command('Floaterminal', toggle_terminal, {})
-vim.keymap.set({ 'n', 't' }, '<leader>tt', toggle_terminal, { desc = 'Open/hide Floaterminal' })
+vim.keymap.set({ 'n', 't' }, '<C-n>', toggle_terminal, { desc = 'Open/hide Floaterminal' })
