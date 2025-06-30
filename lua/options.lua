@@ -68,4 +68,6 @@ vim.opt.softtabstop = 2
 
 -- Diffview global var
 vim.g.diffview_open = false
+
+vim.env.PATH = vim.env.PATH .. ':/opt/homebrew/opt/llvm/bin'
 -- vim: ts=2 sts=2 sw=2 et

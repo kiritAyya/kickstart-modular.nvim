@@ -10,7 +10,7 @@ return {
         markdown = { 'markdownlint' },
         -- go = { 'golangcilint' },
         -- cmakelists = { 'cmakelint' },
-        -- c = { 'clangtidy' },
+        c = { 'clangtidy' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -47,6 +47,26 @@ return {
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
+      --
+      lint.linters.clangtidy = {
+        name = 'clangtidy',
+        cmd = 'clang-tidy',
+        stdin = false,
+        stream = 'stdout',
+        args = {
+          '--quiet',
+          '--extra-arg=-std=c99',
+          '--',
+          '%filepath',
+        },
+        ignore_exitcode = true,
+        parser = require('lint.parser').from_pattern('^(.*):(%d+):(%d+): (%w+): (.*) %[.*%]$', { 'filename', 'lnum', 'col', 'severity', 'message' }, {
+          warning = vim.diagnostic.severity.WARN,
+          error = vim.diagnostic.severity.ERROR,
+          note = vim.diagnostic.severity.HINT,
+        }),
+      }
+
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
         group = lint_augroup,
