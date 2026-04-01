@@ -75,4 +75,8 @@ vim.keymap.set('n', '<leader>e', function()
   vim.cmd 'source %'
 end, { desc = 'Run current file' })
 
+-- Insert blank line below/above current line
+vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
+vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
+
 -- vim: ts=2 sts=2 sw=2 et

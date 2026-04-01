@@ -50,7 +50,7 @@ return {
           },
           merge_tool = {
             -- Config for conflicted files in diff views during a merge or rebase.
-            layout = 'diff3_vertical',
+            layout = 'diff3_mixed',
             disable_diagnostics = true, -- Temporarily disable diagnostics for conflict buffers while in the view.
           },
           file_history = {
@@ -135,7 +135,7 @@ return {
               { desc = 'Choose the THEIRS version of a conflict' },
             },
             { 'n', '<leader>cb', actions.conflict_choose 'base', { desc = 'Choose the BASE version of a conflict' } },
-            { 'n', '<leader>ca', actions.conflict_choose 'all', { desc = 'Choose all the versions of a conflict' } },
+            { 'n', '<leader>cy', actions.conflict_choose 'all', { desc = 'Choose all the versions of a conflict' } },
             { 'n', 'dx', actions.conflict_choose 'none', { desc = 'Delete the conflict region' } },
           },
           diff1 = {
